@@ -1,4 +1,5 @@
 class Victim < ApplicationRecord
     belongs_to :monster
-    validates :title, presence: true, uniqueness: true
+    has_many :attacks
+    validates :name, presence: true, uniqueness: true
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_19_004303) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_20_030746) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,8 +36,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_004303) do
     t.date "birthdate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "monster_id"
+    t.index ["monster_id"], name: "index_victims_on_monster_id"
   end
 
   add_foreign_key "attacks", "monsters"
   add_foreign_key "attacks", "victims"
+  add_foreign_key "victims", "monsters"
 end
